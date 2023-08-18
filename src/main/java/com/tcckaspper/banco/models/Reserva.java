@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -34,15 +35,21 @@ public class Reserva {
 	@JoinColumn(name = "cpf")
 	private Cliente cliente;
 	
-	@Column(name= "endereco_reserva", unique = true, nullable = false, length = 80)
-	private String enderecoReserva;
+
+	@Column(name= "buffet",unique = true, nullable = false, length = 80)
+	@NotNull
+	private String buffet;
 	
-	@Column(name= "horario_reserva")
+	@Column(name= "endereco",unique = true, nullable = false, length = 80)
+	@NotNull
+	private String endereco;
+	
+	@Column(name= "horario", length = 10)
 	@JsonFormat(pattern = "hh:mm")
-	private String horarioReserva;
+	private String horario;
 	
-	@Column(name= "data_reserva")
+	@Column(name= "data", length = 10)
 	@JsonFormat(pattern = "dd/MM/yyyy")
-	private LocalDate dataReserva;
+	private LocalDate data;
 	
 }

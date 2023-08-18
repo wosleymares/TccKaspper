@@ -1,5 +1,7 @@
 package com.tcckaspper.banco.models;
 
+import com.tcckaspper.banco.dtos.AnuncioRequestDto;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,6 +14,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,6 +24,7 @@ import lombok.Setter;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(of="id")
 @Getter
 @Setter
 public class Anuncio {
@@ -34,6 +38,8 @@ public class Anuncio {
 	@JoinColumn(name = "cpf")
 	private Cliente cliente;
 	
+	private String image;
+	
 	
 	@Column(name = "titulo", unique = true, nullable = false, length = 60)
 	@NotNull(message = "Campo 'titulo' obrigatório! ")
@@ -42,15 +48,20 @@ public class Anuncio {
 	
 	@Column(name="descricao", unique = true, nullable = false, length = 500)
 	@NotNull(message = "Campo 'descrição' obrigatório")
-	@Size(min = 50, max = 500, message = "O campo 'descrição' minimo de 50 caractere!")
+	@Size(min = 10, max = 500, message = "O campo 'descrição' minimo de 50 caractere!")
 	public String descricao;
 	
 	@Column(name = "valor", unique = true, nullable = false, length = 15)
 	@NotNull(message = "Campo 'valor' obrigatório! ")
-	public double valor;
+	public Integer valor;
 	
 	@Column(name = "contato", unique = true, nullable = false, length = 20)
 	@NotNull(message = "Campo 'contato' obrigatório! ")
 	public String contato;
+	
+	public Anuncio (AnuncioRequestDto data) {
+		this.image = data.image();
+	}
+	
 
 }

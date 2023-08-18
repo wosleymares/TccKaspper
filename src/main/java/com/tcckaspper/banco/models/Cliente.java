@@ -67,9 +67,5 @@ public class Cliente {
 	@NotNull(message = "O campo 'senha' deve conter letras e números! ")
 	private String senha;
 	
-	/*@Column(name= "confirmaSenha", unique = true, nullable = false, length = 20)
-	@NotNull(message = "Para confirmar, as senhas devem ser iguais! ")
-	private String confirmaSenha;*/
-	
 
 }
