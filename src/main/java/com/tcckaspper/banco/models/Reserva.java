@@ -1,7 +1,9 @@
 package com.tcckaspper.banco.models;
 
 import java.time.LocalDate;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,8 +34,8 @@ public class Reserva {
 	private long id;
 	
 	@ManyToOne
-	@JoinColumn(name = "cpf")
-	private Cliente cliente;
+	@JoinColumn(name= "id_usuario", nullable = false, updatable = false)
+	private Usuario usuario;
 	
 
 	@Column(name= "buffet",unique = true, nullable = false, length = 80)

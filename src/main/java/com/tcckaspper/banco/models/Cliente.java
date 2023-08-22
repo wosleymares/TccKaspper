@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -35,12 +33,11 @@ import lombok.Setter;
 public class Cliente {
 
 	@Id
-	@Column(name = "id")
+	@Column(name = "id_cliente")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@OneToMany(mappedBy = "clientes")
-	@JsonProperty(access = Access.WRITE_ONLY)
+	@OneToMany(mappedBy="cliente")
 	private List<Anuncio> anuncios = new ArrayList<Anuncio>();
 
 	@Column(name = "nome", unique = true, nullable = false, length = 60)
@@ -64,7 +61,7 @@ public class Cliente {
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataNascimento;
 
-	@Column(name = "cpf/cnpj", unique = true, nullable = false, length = 25)
+	@Column(name = "cpf_cnpj", unique = true, nullable = false, length = 25)
 	private String cpfCnpj;
 
 	@Column(name = "login", unique = true, nullable = false, length = 20)

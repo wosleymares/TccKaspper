@@ -35,7 +35,7 @@ public class Anuncio {
 	private long id;
 	
 	@ManyToOne
-	@JoinColumn(name = "cpf")
+	@JoinColumn(name="id_cliente", nullable = false, updatable = false)
 	private Cliente cliente;
 	
 	private String image;
