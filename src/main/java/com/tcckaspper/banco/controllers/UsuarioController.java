@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tcckaspper.banco.models.Usuario;
 import com.tcckaspper.banco.services.UsuarioServiceImplements;
 
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 
 @RestController
@@ -39,6 +40,7 @@ public class UsuarioController {
     }
 
     @PostMapping
+    @Operation(summary = "Salva os dados informados pelo usuário!")
     public ResponseEntity<Usuario> salvar(@Valid @RequestBody Usuario usuario){
         this.usuarioService.salvar(usuario);
         return ResponseEntity.ok().build();
