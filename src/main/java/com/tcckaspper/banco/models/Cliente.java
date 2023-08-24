@@ -61,7 +61,7 @@ public class Cliente {
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataNascimento;
 
-	@Column(name = "cpf_cnpj", unique = true, nullable = false, length = 25)
+	@Column(name = "cpf_cnpj",length = 25)
 	private String cpfCnpj;
 
 	@Column(name = "login", unique = true, nullable = false, length = 20)
