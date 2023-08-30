@@ -33,10 +33,8 @@ public class Anuncio {
 	private long id;
 
 	@ManyToOne
-	@JoinColumn(name = "id_cliente", nullable = false, updatable = false)
+	@JoinColumn(name = "id_cliente")
 	private Cliente cliente;
-
-	private String image;
 
 	@Column(name = "titulo", unique = true, nullable = false, length = 60)
 	@NotNull(message = "Campo 'titulo' obrigatório! ")

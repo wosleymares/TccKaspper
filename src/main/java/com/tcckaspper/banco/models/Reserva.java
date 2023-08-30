@@ -34,7 +34,7 @@ public class Reserva {
 	private long id;
 	
 	@ManyToOne
-	@JoinColumn(name= "id_usuario", nullable = false, updatable = false)
+	@JoinColumn(name= "nome")
 	private Usuario usuario;
 	
 

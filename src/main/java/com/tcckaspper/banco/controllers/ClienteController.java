@@ -21,6 +21,7 @@ import com.tcckaspper.banco.models.Cliente;
 import com.tcckaspper.banco.repositories.ClienteRepository;
 import com.tcckaspper.banco.services.ClienteServiceImplements;
 
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 
 @RestController
@@ -39,6 +40,7 @@ public class ClienteController {
 	private ClienteServiceImplements clienteService;
 
 	@GetMapping
+	@Operation(summary = "Buscar uma lista de clientes")
 	public ResponseEntity<List<Cliente>> listarTodos() {
 		List<Cliente> clientes = this.clienteService.listarClientes();
 		return new ResponseEntity<>(clientes, HttpStatus.OK);
