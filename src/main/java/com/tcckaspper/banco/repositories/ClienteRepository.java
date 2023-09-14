@@ -11,6 +11,6 @@ import com.tcckaspper.banco.models.Cliente;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 	
-	public Optional<Cliente> findByLogin(String senha);
+	public Optional<Cliente> findByEmail(String senha);
 
 }

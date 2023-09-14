@@ -64,10 +64,6 @@ public class Cliente {
 	@Column(name = "cpf_cnpj",length = 25)
 	private String cpfCnpj;
 
-	@Column(name = "login", unique = true, nullable = false, length = 20)
-	@NotNull(message = "Campo 'login' obrigatório! ")
-	private String login;
-
 	@Column(name = "senha", unique = true, nullable = false, length = 25)
 	@NotNull(message = "Campo 'senha' obrigatório! ")
 	private String senha;

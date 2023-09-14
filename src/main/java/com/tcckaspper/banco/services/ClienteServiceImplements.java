@@ -49,7 +49,7 @@ public class ClienteServiceImplements implements ClienteService {
 
 	@Override
 	public Cliente validarSenha(String senha) {
-		this.clienteRepository.findByLogin(senha);
+		this.clienteRepository.findByEmail(senha);
 		return null;
 	}
 
